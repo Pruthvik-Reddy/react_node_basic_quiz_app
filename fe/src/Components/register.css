@@ -1,0 +1,23 @@
+/* .cd1{
+    border: 1px solid;
+    height: 600px;
+    background-image: url(./quizimage.jpg);
+    background-size:  100% 100%;
+    border-radius: 0 0 25px 25px;
+} */
+.cd2{
+    color: rgb(10, 147, 201);
+    
+    width: 300px;
+    position: relative;
+    left: 400px;
+    top: 40px;
+}
+.color{
+    color:skyblue;
+}
+
+.middle{
+    position: relative;
+    left:60px;
+}

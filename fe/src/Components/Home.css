@@ -1,0 +1,21 @@
+ /* .cd7{
+    border: 1px solid;
+    height: 710px;
+    background-image: url(./quizimage.jpg);
+    background-size: 100% 100%;
+    border-radius: 0 0 25px 25px;
+} */
+.head{
+    color: rgb(240, 6, 6);
+    position: absolute;
+    top:250px;
+    left:550px;
+    align-items: center;
+    font-weight: bolder;
+}
+.bd{
+    position: absolute;
+    top:330px;
+    left:620px;
+
+} 
