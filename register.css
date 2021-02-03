@@ -1,0 +1,39 @@
+/* .cd1{
+    border: 1px solid;
+    height: 600px;
+    background-image: url(./quizimage.jpg);
+    background-size:  100% 100%;
+    border-radius: 0 0 25px 25px;
+} */
+.cd2{
+    color: rgb(10, 147, 201);
+    
+    width: 300px;
+    position: relative;
+    left: 400px;
+    top: 40px;
+}
+.color{
+    color:skyblue;
+}
+
+.middle{
+    position: relative;
+    left:60px;
+}
+.button3 {
+    background-color: #ff2205;
+    text-align:center;
+    height:30px;
+    margin-left: -120px;
+    color:white;
+    margin-top: 20px;
+}
+.button2 {
+    background-color: #02ff17;
+    text-align:center;
+    height:30px;
+    margin-left: -120px;
+    color:white;
+    margin-top: 20px;
+}

@@ -21,3 +21,19 @@
     position: relative;
     left:60px;
 }
+.button3 {
+    background-color: #ff2205;
+    text-align:center;
+    height:30px;
+    margin-left: -120px;
+    color:white;
+    margin-top: 20px;
+}
+.button2 {
+    background-color: #02ff17;
+    text-align:center;
+    height:30px;
+    margin-left: -120px;
+    color:white;
+    margin-top: 20px;
+}

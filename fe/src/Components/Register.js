@@ -1,4 +1,4 @@
- import "./register.css";
+import "./register.css";
 import React, { Component } from "react";
 import axios from 'axios';
 import {Navbar,Nav} from 'react-bootstrap';
@@ -20,23 +20,34 @@ export default class Register extends Component {
             userid: '',
             usertype: '',
             userpassword: '',  
-            showMessage: false
+            showMessage: false,
+            data: '',
                 
         }
     };
 
      
-    
     error= () =>{
-        if(this.state.username !== '' 
-        && this.state.useremail !== '' 
-        && this.state.userid !=='' 
-        && this.state.usertype !== '' 
-        && this.state.userpassword !== '') {
-            this.setState({showMessage:true});
-        }  else {
-             alert("All fields are required")
+        if(this.state.username === ''){this.setState({showMessage:'USERNAME REQUIRED'})} 
+        else if (this.state.useremail === '') {
+            this.setState({showMessage:'EMAIL REQUIRED'})
         }
+        else if(this.state.userid ===''){
+            this.setState({showMessage:'USERID REQUIRED'})
+        }
+        else if(this.state.usertype === ''){
+            this.setState({showMessage:'USERTYPE REQUIRED'})
+
+        }
+        else if(this.state.userpassword === ''){
+            this.setState({showMessage:'PASSWORD REQUIRED'})
+
+        }
+        else{
+            this.setState({showMessage:'REGISTRATION SUCCESSFULL'})
+
+        }
+ 
        };  
 
     onChangeusername(e) {
@@ -65,9 +76,12 @@ export default class Register extends Component {
     onChangeuserpassword(e) {
         this.setState({
             userpassword: e.target.value
-        });
+        });     
     }
-     
+//     componentDidMount() {
+// }  
+
+    
     onSubmit(e) {
         e.preventDefault();
         
@@ -88,9 +102,25 @@ export default class Register extends Component {
 
            
         };
-
+        console.log('Hello world');
         axios.post('http://localhost:5000/users/register/',mernL )
-            .then(res => console.log(res.data));
+            .then(res => {console.log(res.data.error)
+            this.setState({
+                data: res.data.error
+            })
+            
+            });
+        // axios.post("http://localhost:5000/users/register").then(res => {
+        //   console.log(res.data);
+        //   this.setState({
+        //     data: res
+            
+        //   });
+          
+        //   //console.log(this.state.data);
+  
+        // });
+  
 
        
         
@@ -117,6 +147,32 @@ export default class Register extends Component {
                         <Nav.Link href="/login" style={{color:"white"}}>Login</Nav.Link>
                      </Nav>      
             </Navbar>
+
+            <div className="cd2">
+                    {(() => {
+                        if (this.state.showMessage.length>0 && this.state.showMessage !== "REGISTRATION SUCCESSFULL") {
+                        return (
+                            <div><p className="button3">{this.state.showMessage}</p></div>
+                        )
+                        } if (this.state.showMessage.length<=0) {
+                        return (
+                            <div></div>
+                        )
+                        } 
+                        if(this.state.data === "User already exists") {
+                            return (
+                                <div><p className="button3">{this.state.data}</p></div>
+                        )
+                        }
+                        if(this.state.showMessage === "REGISTRATION SUCCESSFULL") {
+                        return (
+                            <div><p className="button2">{this.state.showMessage}</p></div>
+                        )
+                        }
+                    })()}
+                </div>
+
+
             <div className="cd2">
                 <h3 className="">User Registration</h3>
                 <form onSubmit={this.onSubmit}>
@@ -183,13 +239,11 @@ export default class Register extends Component {
                                 
                     </div>
                    
-                    <div className="form-group">{
-                         this.state.showMessage && <p> Registeration Successfull</p>
-                    }
+                    
                          <button type="submit" className="btn btn-primary middle" onClick={() => this.error()} >
                           
                           Register  </button>
-                    </div>
+                   
                    
                 </form>
                 </div>
